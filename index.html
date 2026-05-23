@@ -2,60 +2,69 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>ACE_OS V12</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-
+<title>ACE_OS // PORTFOLIO</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- BOOT SCREEN -->
-<div id="bootScreen">
-  <div class="bootText" id="bootText"></div>
-</div>
-
-<!-- MAIN APP -->
-<div id="mainApp" style="display:none;">
-
 <header>
-  <h1>ACE_OS // SYSTEM ONLINE</h1>
+  <h1>ACE_OS</h1>
+  <p>PORTFOLIO NODE</p>
 </header>
 
-<div class="terminal">
+<div class="grid">
 
-  <div class="block" id="output">
-> SYSTEM READY
-  </div>
+  <div class="card" onclick="show('projects')">PROJECTS</div>
+  <div class="card" onclick="show('about')">ABOUT</div>
+  <div class="card" onclick="show('skills')">SKILLS</div>
+  <div class="card" onclick="show('contact')">CONTACT</div>
 
-  <div class="block">
-    <span>> </span>
-    <input id="cmdInput" autocomplete="off" placeholder="enter command..." />
-  </div>
-
-  <div class="block">
-    > DEV ACCESS PANEL<br>
-    <input id="devPass" placeholder="security key..." onkeydown="if(event.key==='Enter') tryUnlockDev()" />
-    <div id="loginMsg"></div>
-  </div>
+  <div class="card dev" onclick="openTerminal()">DEV TERMINAL</div>
 
 </div>
 
-<footer>
-  ACE_OS V12 // STABLE NODE
-</footer>
-
+<div id="panel" class="panel">
+> select a module
 </div>
 
-<!-- SFX -->
-<audio id="sfxBoot" src="assets/boot.wav"></audio>
-<audio id="sfxKey" src="assets/key.wav"></audio>
-<audio id="sfxError" src="assets/error.wav"></audio>
-<audio id="sfxGlitch" src="assets/glitch.wav"></audio>
+<script>
+function show(type) {
+  const panel = document.getElementById("panel");
 
-<script src="app.js"></script>
+  const data = {
+    projects: `
+PROJECTS:
+- TOTAL MAYHEM
+- RAGDOLL CORE
+- AI ANIMATION TOOL
+    `,
+    about: `
+ABOUT:
+Game dev focused on systems, physics, chaos mechanics.
+    `,
+    skills: `
+SKILLS:
+Engineering 87%
+Lua 82%
+Game Design 74%
+Physics 68%
+UI/UX 55%
+    `,
+    contact: `
+CONTACT:
+email: floridaman417@proton.me
+youtube: youtube.com/@Ac3Pr06uctions
+    `
+  };
+
+  panel.innerText = data[type];
+}
+
+function openTerminal() {
+  window.location.href = "terminal.html";
+}
+</script>
 
 </body>
 </html>
