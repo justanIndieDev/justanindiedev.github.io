@@ -69,6 +69,7 @@
       margin: 6px 0;
       transition: 0.2s;
       color: #00fff7;
+      text-decoration: none;
     }
 
     .cmd:hover {
@@ -121,11 +122,24 @@
     <span class="cmd" onclick="runCmd('projects')">> open projects</span>
     <span class="cmd" onclick="runCmd('about')">> open about</span>
     <span class="cmd" onclick="runCmd('skills')">> open skills</span>
+    <span class="cmd" onclick="runCmd('contact')">> open contact</span>
     <span class="cmd" onclick="runCmd('help')">> help</span>
   </div>
 
   <div class="block" id="output">
 > SYSTEM READY...
+  </div>
+
+  <div class="block">
+    > CONTACT NODE ACTIVE<br><br>
+
+    <a class="cmd" href="mailto:floridaman417@proton.me">
+      > email: floridaman417@proton.me
+    </a>
+
+    <a class="cmd" href="https://www.youtube.com/@Ac3Pr06uctions" target="_blank">
+      > youtube: @Ac3Pr06uctions
+    </a>
   </div>
 
 </div>
@@ -149,17 +163,14 @@ function runCmd(cmd) {
 [FILE_001] TOTAL MAYHEM
 TYPE: ROBLOX ARENA SYSTEM
 STATUS: IN DEVELOPMENT
-NOTES: chaotic multiplayer physics combat
 
 [FILE_002] RAGDOLL CORE
 TYPE: PHYSICS MODULE
 STATUS: STABLE
-NOTES: reusable character ragdoll system
 
 [FILE_003] AI ANIMATION TOOL
-TYPE: EXPERIMENTAL TOOL
+TYPE: EXPERIMENTAL SYSTEM
 STATUS: PROTOTYPE
-NOTES: keyframe generation concept
       `;
       break;
 
@@ -168,12 +179,12 @@ NOTES: keyframe generation concept
 > PERSONAL LOG ENTRY
 
 I build systems that feel alive.
-Games, tools, physics experiments, chaos engines.
+Games, tools, physics, chaos engines.
 
-Current focus:
+FOCUS:
 - Roblox engineering
 - multiplayer systems
-- building LLMS
+- experimental mechanics
       `;
       break;
 
@@ -189,6 +200,15 @@ Engineering       : 86%
       `;
       break;
 
+    case "contact":
+      response = `
+> CONTACT NODE
+
+EMAIL: floridaman417@proton.me
+YOUTUBE: youtube.com/@Ac3Pr06uctions
+      `;
+      break;
+
     case "help":
       response = `
 > AVAILABLE COMMANDS
@@ -196,6 +216,7 @@ Engineering       : 86%
 open projects
 open about
 open skills
+open contact
 help
       `;
       break;
