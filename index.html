@@ -1,156 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CONNOR_OS // DEV NODE</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ACE_OS // DEV NODE</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      background: #05010a;
-      color: #00fff7;
-      font-family: 'Share Tech Mono', monospace;
-      overflow-x: hidden;
+<style>
+  body {
+    margin: 0;
+    background: #05010a;
+    color: #00fff7;
+    font-family: 'Share Tech Mono', monospace;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.03),
+      rgba(255,255,255,0.03) 1px,
+      transparent 2px,
+      transparent 4px
+    );
+    pointer-events: none;
+  }
+
+  header {
+    text-align: center;
+    padding: 50px 20px;
+  }
+
+  h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #ff2bd6;
+    text-shadow: 0 0 12px #ff2bd6;
+  }
+
+  .terminal {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  .block {
+    border: 1px solid #a855f7;
+    padding: 15px;
+    margin: 15px 0;
+    background: rgba(10,0,20,0.6);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 15px rgba(168,85,247,0.25);
+
+    opacity: 0;
+    transform: translateY(10px);
+    animation: popIn 0.4s ease forwards;
+  }
+
+  @keyframes popIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
+  }
 
-    /* scanlines */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(255,255,255,0.03),
-        rgba(255,255,255,0.03) 1px,
-        transparent 2px,
-        transparent 4px
-      );
-      pointer-events: none;
-    }
+  .cmd {
+    display: block;
+    cursor: pointer;
+    margin: 6px 0;
+    color: #00fff7;
+    transition: 0.2s;
+  }
 
-    header {
-      text-align: center;
-      padding: 50px 20px;
-    }
+  .cmd:hover {
+    color: #ff2bd6;
+    transform: translateX(6px);
+    text-shadow: 0 0 10px #ff2bd6;
+  }
 
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      color: #ff2bd6;
-      text-shadow: 0 0 10px #ff2bd6;
-      margin: 0;
-    }
+  #output {
+    white-space: pre-wrap;
+    min-height: 140px;
+    transition: opacity 0.25s ease;
+  }
 
-    .subtitle {
-      opacity: 0.8;
-      margin-top: 10px;
-    }
+  .flash {
+    animation: flash 0.3s ease;
+  }
 
-    .terminal {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
+  @keyframes flash {
+    0% { box-shadow: 0 0 0 #ff2bd6; }
+    50% { box-shadow: 0 0 25px #ff2bd6; }
+    100% { box-shadow: 0 0 0 #ff2bd6; }
+  }
 
-    .block {
-      border: 1px solid #a855f7;
-      padding: 15px;
-      margin: 15px 0;
-      background: rgba(10,0,20,0.6);
-      backdrop-filter: blur(6px);
-      box-shadow: 0 0 15px rgba(168,85,247,0.25);
-    }
+  .cursor {
+    display: inline-block;
+    width: 10px;
+    height: 16px;
+    background: #00fff7;
+    animation: blink 1s infinite;
+  }
 
-    .cmd {
-      display: block;
-      cursor: pointer;
-      margin: 6px 0;
-      transition: 0.2s;
-      color: #00fff7;
-      text-decoration: none;
-    }
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
 
-    .cmd:hover {
-      color: #ff2bd6;
-      transform: translateX(6px);
-      text-shadow: 0 0 10px #ff2bd6;
-    }
-
-    #output {
-      white-space: pre-wrap;
-      min-height: 120px;
-    }
-
-    .cursor {
-      display: inline-block;
-      width: 10px;
-      height: 16px;
-      background: #00fff7;
-      animation: blink 1s infinite;
-      vertical-align: middle;
-    }
-
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px;
-      opacity: 0.6;
-    }
-  </style>
+  footer {
+    text-align: center;
+    padding: 40px;
+    opacity: 0.6;
+  }
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>CONNOR_OS // DEV NODE ACTIVE</h1>
-  <div class="subtitle">STATUS: BUILDING • EXPERIMENTING • BREAKING THINGS</div>
+  <h1>ACE_OS // DEV NODE ACTIVE</h1>
 </header>
 
 <div class="terminal">
 
   <div class="block">
-    > INITIALIZING SYSTEM...<br>
-    > ACCESS GRANTED<br>
-    > WELCOME BACK, CONNOR<br><br>
+    > SYSTEM INITIALIZED: ACE OS<br><br>
 
-    <strong>COMMANDS:</strong><br>
     <span class="cmd" onclick="runCmd('projects')">> open projects</span>
     <span class="cmd" onclick="runCmd('about')">> open about</span>
     <span class="cmd" onclick="runCmd('skills')">> open skills</span>
     <span class="cmd" onclick="runCmd('contact')">> open contact</span>
     <span class="cmd" onclick="runCmd('help')">> help</span>
+    <span class="cmd" onclick="runCmd('dev')">> ???</span>
   </div>
 
   <div class="block" id="output">
 > SYSTEM READY...
   </div>
 
-  <div class="block">
-    > CONTACT NODE ACTIVE<br><br>
-
-    <a class="cmd" href="mailto:floridaman417@proton.me">
-      > email: floridaman417@proton.me
-    </a>
-
-    <a class="cmd" href="https://www.youtube.com/@Ac3Pr06uctions" target="_blank">
-      > youtube: @Ac3Pr06uctions
-    </a>
-  </div>
-
 </div>
 
 <footer>
-  CONNOR_OS v1.0 // SIGNAL STABLE <span class="cursor"></span>
+  ACE_OS v1.0 // SIGNAL STABLE <span class="cursor"></span>
 </footer>
 
 <script>
-function runCmd(cmd) {
+
+let devUnlocked = false;
+
+function animateOutput(text) {
   const output = document.getElementById("output");
+
+  output.style.opacity = 0;
+
+  setTimeout(() => {
+    output.innerText = text;
+    output.style.opacity = 1;
+  }, 200);
+}
+
+function flashScreen() {
+  document.body.classList.add("flash");
+  setTimeout(() => document.body.classList.remove("flash"), 300);
+}
+
+function runCmd(cmd) {
+  flashScreen();
 
   let response = "";
 
@@ -161,30 +178,22 @@ function runCmd(cmd) {
 > LOADING PROJECT DATABASE...
 
 [FILE_001] TOTAL MAYHEM
-TYPE: ROBLOX ARENA SYSTEM
-STATUS: IN DEVELOPMENT
+Roblox chaos arena system
 
 [FILE_002] RAGDOLL CORE
-TYPE: PHYSICS MODULE
-STATUS: STABLE
+Physics + movement system
 
 [FILE_003] AI ANIMATION TOOL
-TYPE: EXPERIMENTAL SYSTEM
-STATUS: PROTOTYPE
+Experimental keyframe generator
       `;
       break;
 
     case "about":
       response = `
-> PERSONAL LOG ENTRY
+> PERSONAL LOG (ACE / Ac3)
 
-I build systems that feel alive.
-Games, tools, physics, chaos engines.
-
-FOCUS:
-- Roblox engineering
-- multiplayer systems
-- experimental mechanics
+Builder of systems that feel alive.
+Game dev, physics experiments, multiplayer chaos design.
       `;
       break;
 
@@ -192,11 +201,10 @@ FOCUS:
       response = `
 > SYSTEM STATS
 
-Lua Scripting     : 82%
-Game Design       : 74%
-Physics Systems   : 68%
-UI/UX             : 55%
-Engineering       : 86%
+Lua: 82%
+Game Design: 74%
+Physics: 68%
+UI/UX: 55%
       `;
       break;
 
@@ -211,22 +219,52 @@ YOUTUBE: youtube.com/@Ac3Pr06uctions
 
     case "help":
       response = `
-> AVAILABLE COMMANDS
+> COMMAND LIST
 
 open projects
 open about
 open skills
 open contact
 help
+???
       `;
+      break;
+
+    case "dev":
+      if (!devUnlocked) {
+        devUnlocked = true;
+        response = `
+> ROOT ACCESS GRANTED
+
+WELCOME, ACE
+
+DEV MODE ENABLED
+Extra systems unlocked:
+- system_overclock
+- debug_ui
+- god_view
+        `;
+      } else {
+        response = "> DEV MODE ALREADY ACTIVE";
+      }
+      break;
+
+    case "system_overclock":
+      if (devUnlocked) {
+        document.body.style.filter = "hue-rotate(120deg) contrast(1.2)";
+        response = "> SYSTEM OVERCLOCK ACTIVE";
+      } else {
+        response = "> ACCESS DENIED";
+      }
       break;
 
     default:
       response = "> UNKNOWN COMMAND";
   }
 
-  output.innerText = response;
+  animateOutput(response);
 }
+
 </script>
 
 </body>
