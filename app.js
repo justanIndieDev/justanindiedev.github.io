@@ -71,95 +71,97 @@ window.onload = runBoot;
 const pages = {
 
   projects: `
+<div class="line">> PROJECT DATABASE</div>
+
 <div class="line">
-> PROJECT DATABASE
+TOTAL MAYHEM
+</div>
+<div class="line">
+Round-based chaos arena game built around randomized weapons, fast movement, and PvP unpredictability.
+</div>
+<div class="line">
+Focus: gameplay feel, physics chaos, replayability systems.
 </div>
 
 <div class="line">
-[FILE_001] TOTAL MAYHEM
+RAGDOLL CORE
+</div>
+<div class="line">
+Experimental ragdoll physics system designed for Roblox character interaction and movement feel.
 </div>
 
 <div class="line">
-[FILE_002] RAGDOLL CORE
+AI ANIMATION TOOL
 </div>
-
 <div class="line">
-[FILE_003] AI ANIMATION TOOL
+AI-assisted animation workflow concept for generating base keyframes and motion logic.
 </div>
 `,
 
   about: `
+<div class="line">> PROFILE</div>
+
 <div class="line">
-> PROFILE
+Game developer focused on building systems that feel alive rather than static.
 </div>
 
 <div class="line">
-Game developer focused on:
+I design gameplay around physics, movement, and player unpredictability.
 </div>
 
 <div class="line">
-- physics systems
-</div>
-
-<div class="line">
-- multiplayer chaos
-</div>
-
-<div class="line">
-- immersive gameplay
+Currently exploring multiplayer mechanics, animation systems, and interactive game logic.
 </div>
 `,
 
   skills: `
+<div class="line">> TECHNICAL PROFILE</div>
+
 <div class="line">
-> SKILLS
+ENGINEERING — 87%
+System design, gameplay logic, mechanics architecture
 </div>
 
 <div class="line">
-Engineering: 87%
+LUA — 82%
+Roblox scripting, gameplay systems, tools
 </div>
 
 <div class="line">
-Lua: 82%
+GAME DESIGN — 74%
+Mechanics, pacing, player engagement loops
 </div>
 
 <div class="line">
-Game Design: 74%
+PHYSICS SYSTEMS — 68%
+Ragdoll behavior, movement feel, interaction systems
 </div>
 
 <div class="line">
-Physics: 68%
-</div>
-
-<div class="line">
-UI/UX: 55%
+UI / UX — 55%
+Interface layout, readability, player flow
 </div>
 `,
 
   contact: `
-<div class="line">
-> CONTACT
-</div>
+<div class="line">> CONTACT NODE</div>
 
 <div class="line">
-EMAIL:
-</div>
-
-<div class="line">
+PRIMARY EMAIL:
 floridaman417@proton.me
 </div>
 
 <div class="line">
 YOUTUBE:
+youtube.com/@Ac3Pr06uctions
 </div>
 
 <div class="line">
-youtube.com/@Ac3Pr06uctions
+STATUS:
+Available for collaboration / dev work
 </div>
 `
-
 };
-
 /* COMMAND SYSTEM */
 function runCommand(cmd) {
 
