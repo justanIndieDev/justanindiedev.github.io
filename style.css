@@ -3,7 +3,6 @@ body {
   background: #05010a;
   color: #00fff7;
   font-family: 'Share Tech Mono', monospace;
-  overflow-x: hidden;
 }
 
 body::before {
@@ -20,9 +19,27 @@ body::before {
   pointer-events: none;
 }
 
+/* BOOT */
+#bootScreen {
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.bootText {
+  white-space: pre-line;
+  font-size: 14px;
+  text-shadow: 0 0 10px #00fff7;
+}
+
+/* MAIN */
 header {
   text-align: center;
-  padding: 50px 20px;
+  padding: 40px;
 }
 
 h1 {
@@ -43,36 +60,25 @@ h1 {
   margin: 15px 0;
   background: rgba(10,0,20,0.6);
   backdrop-filter: blur(6px);
-  box-shadow: 0 0 15px rgba(168,85,247,0.25);
-  animation: popIn 0.3s ease;
 }
 
-@keyframes popIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.cmd {
-  display: block;
-  cursor: pointer;
-  margin: 6px 0;
+input {
+  width: 100%;
+  margin-top: 10px;
+  background: transparent;
+  border: 1px solid #00fff7;
   color: #00fff7;
-  transition: 0.2s;
+  padding: 10px;
+  outline: none;
 }
 
-.cmd:hover {
+#loginMsg {
+  margin-top: 10px;
   color: #ff2bd6;
-  transform: translateX(6px);
-  text-shadow: 0 0 10px #ff2bd6;
-}
-
-#output {
-  white-space: pre-wrap;
-  min-height: 140px;
 }
 
 footer {
   text-align: center;
-  padding: 40px;
+  padding: 30px;
   opacity: 0.6;
 }
