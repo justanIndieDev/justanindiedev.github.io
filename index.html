@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>ACE_OS // DEV NODE</title>
+<title>ACE_OS V12</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
@@ -12,32 +12,48 @@
 
 <body>
 
+<!-- BOOT SCREEN -->
+<div id="bootScreen">
+  <div class="bootText" id="bootText"></div>
+</div>
+
+<!-- MAIN APP -->
+<div id="mainApp" style="display:none;">
+
 <header>
-  <h1>ACE_OS // DEV NODE ACTIVE</h1>
+  <h1>ACE_OS // SYSTEM ONLINE</h1>
 </header>
 
 <div class="terminal">
 
-  <div class="block">
-    > SYSTEM ONLINE<br><br>
-
-    <span class="cmd" onclick="runCmd('projects')">> open projects</span>
-    <span class="cmd" onclick="runCmd('about')">> open about</span>
-    <span class="cmd" onclick="runCmd('skills')">> open skills</span>
-    <span class="cmd" onclick="runCmd('contact')">> open contact</span>
-    <span class="cmd" onclick="runCmd('dev')">> dev</span>
-    <span class="cmd" onclick="runCmd('ace_root')">> ???</span>
+  <div class="block" id="output">
+> SYSTEM READY
   </div>
 
-  <div class="block" id="output">
-> SYSTEM READY...
+  <div class="block">
+    <span>> </span>
+    <input id="cmdInput" autocomplete="off" placeholder="enter command..." />
+  </div>
+
+  <div class="block">
+    > DEV ACCESS PANEL<br>
+    <input id="devPass" placeholder="security key..." onkeydown="if(event.key==='Enter') tryUnlockDev()" />
+    <div id="loginMsg"></div>
   </div>
 
 </div>
 
 <footer>
-  ACE_OS v1.0 // SIGNAL STABLE
+  ACE_OS V12 // STABLE NODE
 </footer>
+
+</div>
+
+<!-- SFX -->
+<audio id="sfxBoot" src="assets/boot.wav"></audio>
+<audio id="sfxKey" src="assets/key.wav"></audio>
+<audio id="sfxError" src="assets/error.wav"></audio>
+<audio id="sfxGlitch" src="assets/glitch.wav"></audio>
 
 <script src="app.js"></script>
 
