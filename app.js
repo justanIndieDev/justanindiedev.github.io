@@ -70,79 +70,46 @@ window.onload = runBoot;
 /* CONTENT */
 const pages = {
 
-  projects: `
+projects: `
 <div class="line">> PROJECT DATABASE</div>
 
 <div class="line">
 TOTAL MAYHEM
+<span class="tag wip">W.I.P</span>
 </div>
 <div class="line">
 Round-based chaos arena game built around randomized weapons, fast movement, and PvP unpredictability.
 </div>
 <div class="line">
-Focus: gameplay feel, physics chaos, replayability systems.
+Status: Active development | Core systems in progress
 </div>
+
+<br>
 
 <div class="line">
 RAGDOLL CORE
+<span class="tag complete">COMPLETE</span>
 </div>
 <div class="line">
-Experimental ragdoll physics system designed for Roblox character interaction and movement feel.
+Experimental ragdoll physics system designed for Roblox movement and interaction behavior.
 </div>
+<div class="line">
+Status: Finished | Stable release version
+</div>
+
+<br>
 
 <div class="line">
 AI ANIMATION TOOL
+<span class="tag concept">CONCEPT</span>
 </div>
 <div class="line">
-AI-assisted animation workflow concept for generating base keyframes and motion logic.
+AI-assisted animation system for generating base keyframes and motion structure.
 </div>
-`,
-
-  about: `
-<div class="line">> PROFILE</div>
-
 <div class="line">
-Game developer focused on building systems that feel alive rather than static.
+Status: Design stage | Not implemented yet
 </div>
-
-<div class="line">
-I design gameplay around physics, movement, and player unpredictability.
-</div>
-
-<div class="line">
-Currently exploring multiplayer mechanics, animation systems, and interactive game logic.
-</div>
-`,
-
-  skills: `
-<div class="line">> TECHNICAL PROFILE</div>
-
-<div class="line">
-ENGINEERING — 87%
-System design, gameplay logic, mechanics architecture
-</div>
-
-<div class="line">
-LUA — 82%
-Roblox scripting, gameplay systems, tools
-</div>
-
-<div class="line">
-GAME DESIGN — 74%
-Mechanics, pacing, player engagement loops
-</div>
-
-<div class="line">
-PHYSICS SYSTEMS — 68%
-Ragdoll behavior, movement feel, interaction systems
-</div>
-
-<div class="line">
-UI / UX — 55%
-Interface layout, readability, player flow
-</div>
-`,
-
+`
   contact: `
 <div class="line">> CONTACT NODE</div>
 
