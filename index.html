@@ -1,110 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connor Morse - Personal Webpage</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CONNOR_OS // DEV NODE</title>
 
-        body {
-            font-family: 'VT323', monospace;
-            margin: 0;
-            padding: 0;
-            background-color: #000;
-            color: #00FF00;
-            overflow: hidden;
-        }
-        header, footer {
-            background-color: #000;
-            color: #00FF00;
-            text-align: center;
-            padding: 1rem 0;
-            position: relative;
-            z-index: 1;
-        }
-        section {
-            padding: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            opacity: 0;
-            transform: scale(0.8);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-            position: relative;
-            z-index: 1;
-        }
-        h1, h2 {
-            color: #00FF00;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        a {
-            color: #00FF00;
-            text-decoration: none;
-        }
-        @keyframes matrix {
-            0% {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .animated-text {
-            animation: matrix 1s ease-in-out;
-        }
-        .section-animation {
-            animation: appear 1.5s ease-out forwards;
-        }
-        @keyframes appear {
-            0% {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        .multiview-animation {
-            animation: multiview 2s forwards;
-        }
-        @keyframes multiview {
-            0% {
-                transform: perspective(800px) rotateY(0deg);
-                opacity: 0;
-            }
-            100% {
-                transform: perspective(800px) rotateY(360deg);
-                opacity: 1;
-            }
-        }
-    </style>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      background: #05010a;
+      color: #00fff7;
+      font-family: 'Share Tech Mono', monospace;
+      overflow-x: hidden;
+    }
+
+    /* scanlines */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.03),
+        rgba(255,255,255,0.03) 1px,
+        transparent 2px,
+        transparent 4px
+      );
+      pointer-events: none;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      color: #ff2bd6;
+      text-shadow: 0 0 10px #ff2bd6;
+      margin: 0;
+    }
+
+    .subtitle {
+      opacity: 0.8;
+      margin-top: 10px;
+    }
+
+    .terminal {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .block {
+      border: 1px solid #a855f7;
+      padding: 15px;
+      margin: 15px 0;
+      background: rgba(10,0,20,0.6);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 15px rgba(168,85,247,0.25);
+    }
+
+    .cmd {
+      display: block;
+      cursor: pointer;
+      margin: 6px 0;
+      transition: 0.2s;
+      color: #00fff7;
+    }
+
+    .cmd:hover {
+      color: #ff2bd6;
+      transform: translateX(6px);
+      text-shadow: 0 0 10px #ff2bd6;
+    }
+
+    #output {
+      white-space: pre-wrap;
+      min-height: 120px;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      height: 16px;
+      background: #00fff7;
+      animation: blink 1s infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      opacity: 0.6;
+    }
+  </style>
 </head>
+
 <body>
-    <header class="animated-text multiview-animation">
-        <h1>Connor Morse</h1>
-    </header>
 
-    <section class="animated-text section-animation">
-        <h2>About Me</h2>
-        <p>Welcome to my corner of the web! I'm passionate about coding and love bringing creative ideas to life through technology. With a blend of technical skills and a knack for innovation, I thrive on solving complex problems and building unique, impactful projects. Whether it's developing sleek websites, crafting efficient algorithms, or experimenting with new technologies, I'm always excited to push the boundaries of what's possible. Let's connect and create something amazing together!</p>
-    </section>
+<header>
+  <h1>CONNOR_OS // DEV NODE ACTIVE</h1>
+  <div class="subtitle">STATUS: BUILDING • EXPERIMENTING • BREAKING THINGS</div>
+</header>
 
-    <section class="animated-text section-animation">
-        <h2>Projects</h2>
-        <p>Check out my Replit projects <a href="https://replit.com/@coolkidconnor21" target="_blank">here</a>.</p>
-    </section>
+<div class="terminal">
 
-    <section class="animated-text section-animation">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:floridaman417@proton.me">floridaman417@proton.me</a></p>
-    </section>
+  <div class="block">
+    > INITIALIZING SYSTEM...<br>
+    > ACCESS GRANTED<br>
+    > WELCOME BACK, CONNOR<br><br>
 
-    <footer class="animated-text">
-        <p>&copy; 2026 Connor Morse</p>
-    </footer>
+    <strong>COMMANDS:</strong><br>
+    <span class="cmd" onclick="runCmd('projects')">> open projects</span>
+    <span class="cmd" onclick="runCmd('about')">> open about</span>
+    <span class="cmd" onclick="runCmd('skills')">> open skills</span>
+    <span class="cmd" onclick="runCmd('help')">> help</span>
+  </div>
+
+  <div class="block" id="output">
+> SYSTEM READY...
+  </div>
+
+</div>
+
+<footer>
+  CONNOR_OS v1.0 // SIGNAL STABLE <span class="cursor"></span>
+</footer>
+
+<script>
+function runCmd(cmd) {
+  const output = document.getElementById("output");
+
+  let response = "";
+
+  switch(cmd) {
+
+    case "projects":
+      response = `
+> LOADING PROJECT DATABASE...
+
+[FILE_001] TOTAL MAYHEM
+TYPE: ROBLOX ARENA SYSTEM
+STATUS: IN DEVELOPMENT
+NOTES: chaotic multiplayer physics combat
+
+[FILE_002] RAGDOLL CORE
+TYPE: PHYSICS MODULE
+STATUS: STABLE
+NOTES: reusable character ragdoll system
+
+[FILE_003] AI ANIMATION TOOL
+TYPE: EXPERIMENTAL TOOL
+STATUS: PROTOTYPE
+NOTES: keyframe generation concept
+      `;
+      break;
+
+    case "about":
+      response = `
+> PERSONAL LOG ENTRY
+
+I build systems that feel alive.
+Games, tools, physics experiments, chaos engines.
+
+Current focus:
+- Roblox engineering
+- multiplayer systems
+- building LLMS
+      `;
+      break;
+
+    case "skills":
+      response = `
+> SYSTEM STATS
+
+Lua Scripting     : 82%
+Game Design       : 74%
+Physics Systems   : 68%
+UI/UX             : 55%
+Engineering       : 86%
+      `;
+      break;
+
+    case "help":
+      response = `
+> AVAILABLE COMMANDS
+
+open projects
+open about
+open skills
+help
+      `;
+      break;
+
+    default:
+      response = "> UNKNOWN COMMAND";
+  }
+
+  output.innerText = response;
+}
+</script>
+
 </body>
 </html>
