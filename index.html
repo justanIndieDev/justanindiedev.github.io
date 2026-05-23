@@ -1,82 +1,64 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ACE_OS V12</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- BOOT SCREEN -->
+<!-- BOOT -->
 <div id="bootScreen">
   <div id="bootText"></div>
 </div>
 
 <!-- MAIN OS -->
-<div id="mainOS" class="hidden">
+<div id="mainOS" style="display:none;">
 
-  <header>
-    <h1>ACE_OS V12</h1>
-    <p>SYSTEM PORTFOLIO INTERFACE</p>
-  </header>
+<header>
+  <h1>ACE_OS V12</h1>
+  <p>PORTFOLIO INTERFACE</p>
+</header>
 
-  <!-- COMMANDS -->
-  <div class="commandBar">
-    <div class="cmd" onclick="runCommand('projects')">
-      > open projects
-    </div>
+<!-- COMMANDS -->
+<div class="commandBar">
 
-    <div class="cmd" onclick="runCommand('about')">
-      > open about
-    </div>
+  <div class="cmd" onclick="runCommand('projects')">> open projects</div>
+  <div class="cmd" onclick="runCommand('about')">> open about</div>
+  <div class="cmd" onclick="runCommand('skills')">> open skills</div>
+  <div class="cmd" onclick="runCommand('contact')">> open contact</div>
+  <div class="cmd" onclick="runCommand('clear')">> clear</div>
 
-    <div class="cmd" onclick="runCommand('skills')">
-      > open skills
-    </div>
+</div>
 
-    <div class="cmd" onclick="runCommand('contact')">
-      > open contact
-    </div>
+<!-- OUTPUT -->
+<div class="terminalWindow">
 
-    <div class="cmd" onclick="runCommand('clear')">
-      > clear
-    </div>
+  <div class="windowTop">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    TERMINAL
   </div>
 
-  <!-- OUTPUT -->
-  <div class="terminalWindow">
-
-    <div class="windowTop">
-      <span class="dot red"></span>
-      <span class="dot yellow"></span>
-      <span class="dot green"></span>
-      TERMINAL_NODE
-    </div>
-
-    <div id="output">
-      <div class="line bootAnim">
-        > SYSTEM READY
-      </div>
-    </div>
-
+  <div id="output">
+    <div class="line">> SYSTEM READY</div>
   </div>
 
-  <footer>
-    ACE_OS V12 // STABLE NODE<br>
-    FTQ DAMP IUXX GZHQUX UFEQXR EAAZ QZAGST
-  </footer>
+</div>
+
+<footer>
+ACE_OS V12 // ONLINE
+</footer>
 
 </div>
 
 <!-- AUDIO -->
 <audio id="bootSfx" src="assets/boot.wav"></audio>
-<audio id="keySfx" src="assets/key.wav"></audio>
-<audio id="openSfx" src="assets/open.wav"></audio>
 
 <script src="app.js"></script>
 
