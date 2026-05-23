@@ -1,160 +1,83 @@
-// app.js
-
 const bootText = document.getElementById("bootText");
 const bootScreen = document.getElementById("bootScreen");
 const mainOS = document.getElementById("mainOS");
-
 const output = document.getElementById("output");
 
-/* AUDIO */
 const bootSfx = document.getElementById("bootSfx");
-const keySfx = document.getElementById("keySfx");
-const openSfx = document.getElementById("openSfx");
 
-function play(sound) {
-  if (!sound) return;
-
-  sound.currentTime = 0;
-
-  sound.play().catch(() => {});
-}
-
-/* BOOT SEQUENCE */
+/* BOOT */
 const bootLines = [
-"ACE_OS V12 INITIALIZING...",
-"CHECKING MEMORY BANKS.......... OK",
-"LOADING GRAPHICS PIPELINE...... OK",
-"VERIFYING USER INTERFACE....... OK",
-"CONNECTING TERMINAL NODE....... OK",
-"",
+"ACE_OS V12 BOOTING...",
+"CHECKING SYSTEM OK",
+"LOADING UI OK",
+"STARTING TERMINAL OK",
 "BOOT COMPLETE"
 ];
 
-let bootIndex = 0;
+let i = 0;
 
-function runBoot() {
-
-  if (bootIndex === 0) {
-    play(bootSfx);
+function playBoot() {
+  if (i === 0) {
+    bootSfx.play().catch(()=>{});
   }
 
-  if (bootIndex < bootLines.length) {
-
-    bootText.innerText += bootLines[bootIndex] + "\n";
-
-    bootIndex++;
-
-    setTimeout(runBoot, 350);
-
+  if (i < bootLines.length) {
+    bootText.innerText += bootLines[i] + "\n";
+    i++;
+    setTimeout(playBoot, 400);
   } else {
-
     setTimeout(() => {
-
-      bootScreen.style.transition = "0.8s";
-      bootScreen.style.opacity = "0";
-
-      setTimeout(() => {
-
-        bootScreen.style.display = "none";
-        mainOS.style.display = "block";
-
-      }, 800);
-
-    }, 700);
-
+      bootScreen.style.display = "none";
+      mainOS.style.display = "block";
+    }, 800);
   }
 }
 
-window.onload = runBoot;
+window.onload = playBoot;
 
-/* CONTENT */
-const pages = {
+/* =========================
+   IMPORTANT FIX HERE
+========================= */
+window.runCommand = function(cmd) {
 
-projects: `
-<div class="line">> PROJECT DATABASE</div>
+  let response = "";
 
-<div class="line">
-TOTAL MAYHEM
-<span class="tag wip">W.I.P</span>
-</div>
-<div class="line">
-Round-based chaos arena game built around randomized weapons, fast movement, and PvP unpredictability.
-</div>
-<div class="line">
-Status: Active development | Core systems in progress
-</div>
+  switch(cmd) {
 
-<br>
+    case "projects":
+      response = `
+<div class="line">TOTAL MAYHEM — W.I.P</div>
+<div class="line">RAGDOLL CORE — COMPLETE</div>
+<div class="line">AI ANIMATION TOOL — CONCEPT</div>
+`;
+      break;
 
-<div class="line">
-RAGDOLL CORE
-<span class="tag complete">COMPLETE</span>
-</div>
-<div class="line">
-Experimental ragdoll physics system designed for Roblox movement and interaction behavior.
-</div>
-<div class="line">
-Status: Finished | Stable release version
-</div>
+    case "about":
+      response = `<div class="line">Game dev focused on systems & physics</div>`;
+      break;
 
-<br>
+    case "skills":
+      response = `
+<div class="line">Engineering: 87%</div>
+<div class="line">Lua: 82%</div>
+<div class="line">Design: 74%</div>
+`;
+      break;
 
-<div class="line">
-AI ANIMATION TOOL
-<span class="tag concept">CONCEPT</span>
-</div>
-<div class="line">
-AI-assisted animation system for generating base keyframes and motion structure.
-</div>
-<div class="line">
-Status: Design stage | Not implemented yet
-</div>
-`
-  contact: `
-<div class="line">> CONTACT NODE</div>
+    case "contact":
+      response = `
+<div class="line">Email: floridaman417@proton.me</div>
+<div class="line">YouTube: youtube.com/@Ac3Pr06uctions</div>
+`;
+      break;
 
-<div class="line">
-PRIMARY EMAIL:
-floridaman417@proton.me
-</div>
+    case "clear":
+      response = `<div class="line">> CLEARED</div>`;
+      break;
 
-<div class="line">
-YOUTUBE:
-youtube.com/@Ac3Pr06uctions
-</div>
+    default:
+      response = `<div class="line">> UNKNOWN COMMAND</div>`;
+  }
 
-<div class="line">
-STATUS:
-Available for collaboration / dev work
-</div>
-`
+  output.innerHTML = response;
 };
-/* COMMAND SYSTEM */
-function runCommand(cmd) {
-
-  play(keySfx);
-  play(openSfx);
-
-  output.style.opacity = "0";
-
-  setTimeout(() => {
-
-    if (cmd === "clear") {
-
-      output.innerHTML = `
-      <div class="line">
-      > TERMINAL CLEARED
-      </div>
-      `;
-
-    } else {
-
-      output.innerHTML = pages[cmd];
-
-    }
-
-    output.style.opacity = "1";
-
-  }, 150);
-
-}
