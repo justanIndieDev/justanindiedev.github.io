@@ -1,12 +1,31 @@
 const output = document.getElementById("output");
 const input = document.getElementById("cmdInput");
 
+/* =========================
+   SFX ENGINE
+========================= */
+const sfxBoot = document.getElementById("sfxBoot");
+const sfxKey = document.getElementById("sfxKey");
+const sfxError = document.getElementById("sfxError");
+const sfxGlitch = document.getElementById("sfxGlitch");
+
+function play(sfx) {
+  if (!sfx) return;
+  sfx.currentTime = 0;
+  sfx.play().catch(() => {});
+}
+
+/* =========================
+   TERMINAL ENGINE
+========================= */
 function print(text) {
   output.innerText = text;
 }
 
 function runCmd(cmdRaw) {
   let cmd = cmdRaw.toLowerCase().trim();
+
+  play(sfxKey);
 
   let response = "";
 
@@ -35,7 +54,7 @@ FTQ DAMP IUXX GZHQUX UFEQXR EAAZ QZAGST
       response = `
 SYSTEM LOG:
 - kernel stable
-- anomaly detected in ARG layer
+- ARG anomaly detected
       `;
       break;
 
@@ -47,6 +66,7 @@ TRACE:
       break;
 
     case "override":
+      play(sfxGlitch);
       response = `
 OVERRIDE ACTIVE
 ARG LAYER ENABLED
@@ -58,12 +78,16 @@ ARG LAYER ENABLED
       break;
 
     default:
+      play(sfxError);
       response = "> UNKNOWN COMMAND";
   }
 
   print(response);
 }
 
+/* =========================
+   INPUT HANDLER
+========================= */
 input.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     runCmd(input.value);
