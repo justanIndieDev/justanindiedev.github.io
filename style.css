@@ -5,49 +5,54 @@ body {
   font-family: 'Share Tech Mono', monospace;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(255,255,255,0.03),
-    rgba(255,255,255,0.03) 1px,
-    transparent 2px,
-    transparent 4px
-  );
-  pointer-events: none;
-}
-
-/* BOOT */
-#bootScreen {
-  position: fixed;
-  inset: 0;
-  background: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.bootText {
-  white-space: pre-line;
-  font-size: 14px;
-  text-shadow: 0 0 10px #00fff7;
-}
-
-/* MAIN */
+/* HEADER */
 header {
   text-align: center;
   padding: 40px;
 }
 
 h1 {
-  font-family: 'Orbitron', sans-serif;
   color: #ff2bd6;
   text-shadow: 0 0 12px #ff2bd6;
 }
 
+/* HUB GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  gap: 15px;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.card {
+  padding: 20px;
+  border: 1px solid #00fff7;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.card:hover {
+  border-color: #ff2bd6;
+  color: #ff2bd6;
+  transform: scale(1.05);
+}
+
+.dev {
+  border-color: #ff2bd6;
+}
+
+/* PANEL */
+.panel {
+  margin: 40px auto;
+  width: 60%;
+  padding: 20px;
+  border: 1px solid #a855f7;
+  white-space: pre-line;
+}
+
+/* TERMINAL */
 .terminal {
   max-width: 900px;
   margin: auto;
@@ -59,9 +64,9 @@ h1 {
   padding: 15px;
   margin: 15px 0;
   background: rgba(10,0,20,0.6);
-  backdrop-filter: blur(6px);
 }
 
+/* INPUT */
 input {
   width: 100%;
   margin-top: 10px;
@@ -70,15 +75,4 @@ input {
   color: #00fff7;
   padding: 10px;
   outline: none;
-}
-
-#loginMsg {
-  margin-top: 10px;
-  color: #ff2bd6;
-}
-
-footer {
-  text-align: center;
-  padding: 30px;
-  opacity: 0.6;
 }
