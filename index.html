@@ -1,68 +1,84 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>ACE_OS // PORTFOLIO</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACE_OS V12</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-  <h1>ACE_OS</h1>
-  <p>PORTFOLIO NODE</p>
-</header>
+<!-- BOOT SCREEN -->
+<div id="bootScreen">
+  <div id="bootText"></div>
+</div>
 
-<div class="grid">
+<!-- MAIN OS -->
+<div id="mainOS" class="hidden">
 
-  <div class="card" onclick="show('projects')">PROJECTS</div>
-  <div class="card" onclick="show('about')">ABOUT</div>
-  <div class="card" onclick="show('skills')">SKILLS</div>
-  <div class="card" onclick="show('contact')">CONTACT</div>
+  <header>
+    <h1>ACE_OS V12</h1>
+    <p>SYSTEM PORTFOLIO INTERFACE</p>
+  </header>
 
-  <div class="card dev" onclick="openTerminal()">DEV TERMINAL</div>
+  <!-- COMMANDS -->
+  <div class="commandBar">
+    <div class="cmd" onclick="runCommand('projects')">
+      > open projects
+    </div>
+
+    <div class="cmd" onclick="runCommand('about')">
+      > open about
+    </div>
+
+    <div class="cmd" onclick="runCommand('skills')">
+      > open skills
+    </div>
+
+    <div class="cmd" onclick="runCommand('contact')">
+      > open contact
+    </div>
+
+    <div class="cmd" onclick="runCommand('clear')">
+      > clear
+    </div>
+  </div>
+
+  <!-- OUTPUT -->
+  <div class="terminalWindow">
+
+    <div class="windowTop">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+      TERMINAL_NODE
+    </div>
+
+    <div id="output">
+      <div class="line bootAnim">
+        > SYSTEM READY
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    ACE_OS V12 // STABLE NODE<br>
+    FTQ DAMP IUXX GZHQUX UFEQXR EAAZ QZAGST
+  </footer>
 
 </div>
 
-<div id="panel" class="panel">> select a module</div>
+<!-- AUDIO -->
+<audio id="bootSfx" src="assets/boot.wav"></audio>
+<audio id="keySfx" src="assets/key.wav"></audio>
+<audio id="openSfx" src="assets/open.wav"></audio>
 
-<script>
-function show(type) {
-  const panel = document.getElementById("panel");
-
-  const data = {
-    projects: `
-PROJECTS:
-- TOTAL MAYHEM
-- RAGDOLL CORE
-- AI ANIMATION TOOL
-    `,
-    about: `
-ABOUT:
-Game dev focused on systems, physics, chaos mechanics.
-    `,
-    skills: `
-SKILLS:
-Engineering 87%
-Lua 82%
-Game Design 74%
-Physics 68%
-UI/UX 55%
-    `,
-    contact: `
-CONTACT:
-email: floridaman417@proton.me
-youtube: youtube.com/@Ac3Pr06uctions
-    `
-  };
-
-  panel.innerText = data[type];
-}
-
-function openTerminal() {
-  window.location.href = "terminal.html";
-}
-</script>
+<script src="app.js"></script>
 
 </body>
 </html>
