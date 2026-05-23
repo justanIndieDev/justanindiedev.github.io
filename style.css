@@ -1,11 +1,3 @@
-/* =========================
-   ACE_OS CORE STYLE
-========================= */
-
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   background: #05010a;
@@ -14,221 +6,110 @@ body {
   overflow-x: hidden;
 }
 
-/* =========================
-   SCANLINES + GLOW EFFECT
-========================= */
-
-body::before {
-  content: "";
+/* BOOT */
+#bootScreen {
   position: fixed;
   inset: 0;
-  pointer-events: none;
-
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(255,255,255,0.03),
-      rgba(255,255,255,0.03) 1px,
-      transparent 2px,
-      transparent 4px
-    );
-
-  animation: scanMove 8s linear infinite;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
 }
 
-@keyframes scanMove {
-  from { transform: translateY(0); }
-  to { transform: translateY(6px); }
+#bootText {
+  white-space: pre-line;
+  font-size: 14px;
+  text-shadow: 0 0 8px #00fff7;
+  animation: flicker 1.5s infinite;
 }
 
-/* =========================
-   HEADER
-========================= */
-
+/* HEADER */
 header {
   text-align: center;
-  padding: 40px 20px;
-  animation: fadeDown 1s ease;
+  padding: 40px;
 }
 
 h1 {
   font-family: Orbitron;
   color: #ff2bd6;
-  font-size: 52px;
-  text-shadow:
-    0 0 10px #ff2bd6,
-    0 0 30px #ff2bd6;
+  font-size: 50px;
+  text-shadow: 0 0 20px #ff2bd6;
 }
 
-p {
-  opacity: 0.7;
-}
-
-/* =========================
-   COMMAND GRID
-========================= */
-
+/* COMMANDS */
 .commandBar {
-  width: 90%;
-  max-width: 900px;
-  margin: auto;
-
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-
+  gap: 10px;
   justify-content: center;
-
-  animation: fadeUp 1s ease;
+  flex-wrap: wrap;
 }
 
 .cmd {
   border: 1px solid #00fff7;
-  padding: 12px 18px;
+  padding: 10px 15px;
   cursor: pointer;
-
   transition: 0.2s;
-  background: rgba(0,255,247,0.04);
-  backdrop-filter: blur(4px);
 }
 
 .cmd:hover {
-  transform: translateY(-4px) scale(1.03);
-
   border-color: #ff2bd6;
   color: #ff2bd6;
-
-  box-shadow: 0 0 12px #ff2bd6;
+  transform: scale(1.05);
 }
 
-/* =========================
-   TERMINAL WINDOW
-========================= */
-
+/* TERMINAL */
 .terminalWindow {
   width: 90%;
   max-width: 900px;
-
   margin: 30px auto;
-
   border: 1px solid #a855f7;
   background: rgba(10,0,20,0.7);
-
-  backdrop-filter: blur(10px);
-
-  box-shadow: 0 0 25px rgba(168,85,247,0.3);
-
-  animation: fadeUp 1s ease;
 }
 
 .windowTop {
-  padding: 12px;
+  padding: 10px;
   border-bottom: 1px solid #a855f7;
-  background: rgba(255,255,255,0.03);
 }
 
-/* DOTS */
 .dot {
-  display: inline-block;
   width: 10px;
   height: 10px;
+  display: inline-block;
   border-radius: 50%;
-  margin-right: 6px;
+  margin-right: 5px;
 }
 
 .red { background: #ff5f56; }
 .yellow { background: #ffbd2e; }
 .green { background: #27c93f; }
 
-/* OUTPUT */
 #output {
   padding: 20px;
-  min-height: 320px;
+  min-height: 300px;
 }
 
-/* LINE ANIMATION */
+/* LINE */
 .line {
-  margin-bottom: 12px;
-  animation: lineAppear 0.3s ease;
+  margin-bottom: 10px;
+  animation: fade 0.3s ease;
 }
 
-@keyframes lineAppear {
-  from {
-    opacity: 0;
-    transform: translateX(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* =========================
-   FOOTER
-========================= */
-
+/* FOOTER */
 footer {
   text-align: center;
-  padding: 40px;
   opacity: 0.5;
-  animation: fadeUp 1s ease;
+  padding: 30px;
 }
 
-/* =========================
-   PROJECT TAGS
-========================= */
-
-.tag {
-  margin-left: 10px;
-  padding: 2px 8px;
-  font-size: 12px;
-  border-radius: 4px;
-  border: 1px solid;
+/* ANIM */
+@keyframes flicker {
+  0% {opacity:1;}
+  50% {opacity:0.7;}
+  100% {opacity:1;}
 }
 
-/* WIP */
-.wip {
-  color: #ff2bd6;
-  border-color: #ff2bd6;
-  box-shadow: 0 0 8px #ff2bd6;
-}
-
-/* CONCEPT */
-.concept {
-  color: #00fff7;
-  border-color: #00fff7;
-  opacity: 0.8;
-}
-
-/* COMPLETE */
-.complete {
-  color: #27c93f;
-  border-color: #27c93f;
-  box-shadow: 0 0 8px #27c93f;
-}
-
-/* =========================
-   ANIMATIONS
-========================= */
-
-@keyframes fadeDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes fade {
+  from {opacity:0; transform: translateX(-10px);}
+  to {opacity:1; transform: translateX(0);}
 }
