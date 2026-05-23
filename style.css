@@ -16,7 +16,7 @@ h1 {
   text-shadow: 0 0 12px #ff2bd6;
 }
 
-/* HUB GRID */
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 200px);
@@ -66,7 +66,6 @@ h1 {
   background: rgba(10,0,20,0.6);
 }
 
-/* INPUT */
 input {
   width: 100%;
   margin-top: 10px;
