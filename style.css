@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  background: #05010a;
+  color: #00fff7;
+  font-family: 'Share Tech Mono', monospace;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.03) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+}
+
+header {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  color: #ff2bd6;
+  text-shadow: 0 0 12px #ff2bd6;
+}
+
+.terminal {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.block {
+  border: 1px solid #a855f7;
+  padding: 15px;
+  margin: 15px 0;
+  background: rgba(10,0,20,0.6);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 15px rgba(168,85,247,0.25);
+  animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cmd {
+  display: block;
+  cursor: pointer;
+  margin: 6px 0;
+  color: #00fff7;
+  transition: 0.2s;
+}
+
+.cmd:hover {
+  color: #ff2bd6;
+  transform: translateX(6px);
+  text-shadow: 0 0 10px #ff2bd6;
+}
+
+#output {
+  white-space: pre-wrap;
+  min-height: 140px;
+}
+
+footer {
+  text-align: center;
+  padding: 40px;
+  opacity: 0.6;
+}
