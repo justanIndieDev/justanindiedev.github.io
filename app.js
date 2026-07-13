@@ -125,7 +125,7 @@ My long-term goal is to become a systems-focused developer, building games that 
       response = `
 <div class="line">> TECH PROFILE</div>
 
-<div class="line">Engineering: 87% — system architecture, mechanics design</div>
+<div class="line">Engineering: idk like 30% — system architecture, mechanics design</div>
 <div class="line">Lua: 82% — Roblox scripting, gameplay systems</div>
 <div class="line">Game Design: 74% — loops, pacing, engagement</div>
 <div class="line">Physics Systems: 68% — ragdolls, movement, interaction</div>
